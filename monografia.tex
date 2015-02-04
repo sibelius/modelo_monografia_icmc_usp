@@ -1,0 +1,114 @@
+\documentclass[12pt,times,a4paper,twoside]{icmc}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[top=30mm,bottom=20mm,left=30mm,right=20mm,twoside]{geometry}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[nottoc]{tocbibind}
+\usepackage{fancychap} % Remova se quiser tirar os detalhes do título do capítulo
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathptmx} % Necessário para corrigir a fonte para Times
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{algpseudocode}
+\usepackage{pdfpages}
+
+\hypersetup{
+    colorlinks = true,
+    citecolor = black,
+    filecolor = black,
+    linkcolor = black,
+    urlcolor = black,
+}
+
+\begin{document}
+\onehalfspacing
+
+\title{Título}
+
+\author{Autor}
+
+\begingroup
+%\maketitle
+% CAPA
+% Crie a capa no Word (4 páginas iniciais) e exporte para pdf
+% \includepdf[pages={1-4}]{caminho-para-capa.pdf}
+
+\frontmatter \pagestyle{plain}
+
+\floatplacement{table}{!ht}
+
+% Epígrafe
+\begin{titlepage}
+\vspace*{20cm}
+\begin{flushright}
+\begin{minipage}[t]{7.0 cm}
+\textit{Texto para epígrafe aqui.\\Obs.: item opcional.}
+\end{minipage}
+\end{flushright}
+\end{titlepage}
+
+% Dedicatória e Agradecimentos
+\chapter*{Dedicatória}
+\begin{flushright}
+    Dedicatória aqui.\\
+    Obs.:Item opcional.
+\end{flushright}
+
+\chapter*{Agradecimentos}
+
+Agradecimentos aqui.\\
+Obs.:Item opcional.
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input resumo.tex
+
+\tableofcontents
+
+\listoffigures
+\listoftables
+\input siglas.tex
+\input simbolos.tex
+
+\cleardoublepage{\pagestyle{plain}\clearpage}
+
+\endgroup
+
+\mainmatter
+
+\renewcommand{\chaptermark}[1]{%
+
+\markboth{\chaptername
+\ \thechapter.\ #1}{}}  %
+
+\renewcommand{\sectionmark}[1]{%
+ \markright{\thesection.\ #1}}
+
+%\input ...
+\input introducao.tex
+\input revisao.tex
+\input desenvolvimento.tex
+\input conclusao.tex
+
+%Observação 1: É obrigatório que a monografia tenha uma lista de referências que deve estar contida neste item.
+%Observação 2: As referências devem estar em ordem alfabética pelo sobrenome do primeiro autor.
+%Observação 3: Todos os documentos referenciados nesse item (livros, artigos, relatórios técnicos, sites, entre outros) deverão ter sido citados no texto.
+%Observação 4: Todos as citações no decorrer do texto deverão ser listadas neste item.
+%Observação 5: É obrigatório que a lista de referências esteja de acordo com a norma NBR-6023/2002 para referências bibliográficas.
+
+\renewcommand{\bibname}{Referências}
+%\printbibliography[heading=bibintoc]
+\bibliographystyle{abntex2-alf} 
+\bibliography{referencias}
+
+% Se precisar de apêndice, use a seção abaixo
+%\appendix
+%\renewcommand\appendixname{Apêndice}
+%\renewcommand\chaptername{Apêndice}
+
+\end{document}
